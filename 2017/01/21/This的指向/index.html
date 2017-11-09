@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JS,This," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。当你在代码中使用了 this，这个 this的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。">
+<meta name="keywords" content="JS,This">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This的指向">
+<meta property="og:url" content="http://yoursite.com/2017/01/21/This的指向/index.html">
+<meta property="og:site_name" content="Make Arduous Efforts">
+<meta property="og:description" content="this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。当你在代码中使用了 this，这个 this的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-09T07:08:58.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="This的指向">
+<meta name="twitter:description" content="this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。当你在代码中使用了 this，这个 this的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/21/This的指向/"/>
+
+
+
+
+
+  <title>This的指向 | Make Arduous Efforts</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Make Arduous Efforts</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">善莫大焉</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/21/This的指向/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨林川">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Make Arduous Efforts">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">This的指向</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-21T22:00:00+08:00">
+                2017-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。当你在代码中使用了 this，这个 this的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="1．全局的this指向window"><a href="#1．全局的this指向window" class="headerlink" title="1．全局的this指向window"></a>1．全局的this指向window</h4><ul>
+<li><p>在全局情况下this永远指向window;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(this===window)//<span class="literal">true</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>普通函数调用的时候this也是指向window(注意严格模式下为undefined)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var x = 10;  //window.x</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</div><div class="line">    console.log(this);   //window  </div><div class="line">    console.log(this.x);  //10 </div><div class="line">&#125;</div><div class="line">foo();  //foo.call(window),window.foo()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2．对象方法"><a href="#2．对象方法" class="headerlink" title="2．对象方法"></a>2．对象方法</h4><ul>
+<li><p>如果函数作为对象的方法来调用的时候，this指向调用它的该对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">注意这里声明用的不是<span class="built_in">let</span>，所以obj没有自己的块级作用域;</div><div class="line">var obj = &#123;</div><div class="line">    x: 10,</div><div class="line">    foo: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        console.log(this);        //&#123;x: 10, foo: ƒ&#125;</div><div class="line">        console.log(this.x);      //10</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">obj.foo();</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果在对象方法中定义函数，那么也就是闭包,this是会指向window</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    x: 10,</div><div class="line">    foo: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        console.log(this)   //&#123;x: 10, foo: ƒ&#125;</div><div class="line">        <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">            console.log(this);      //Window</div><div class="line">            console.log(this.x);    //10 </div><div class="line">            console.log(obj.x===window.x)  //<span class="literal">true</span>,obj===window.obj</div><div class="line">        &#125;f();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">obj.foo();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数虽然是在obj.foo中定义的，但它仍然只是个普通函数。作用域的特性，自己内部没有就会向父函数里找，父函数没有，就会向更上级找，直到最终找到或找不到为止。</p>
+<ul>
+<li>如果foo方法不作为对象被调用，那么就指向调用它的那个<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    x: 10,</div><div class="line">    foo: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        console.log(this);       //Window</div><div class="line">        console.log(this.x);     //10</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var fn = obj.foo;  //window.fn</div><div class="line">fn();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3．构造函数"><a href="#3．构造函数" class="headerlink" title="3．构造函数"></a>3．构造函数</h4><p>构造函数就是由一个函数 new 出来的对象，一般构造函数的函数名首字母大写，例如像 Object，Function，Array这些都属于构造函数。</p>
+<ul>
+<li><p>如果函数作为构造函数使用，那么其中的 this 就代表它即将 new 出来的对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>()&#123;</div><div class="line">    this.x = 10;</div><div class="line">    console.log(this);    //Foo &#123;x:10&#125;</div><div class="line">&#125;</div><div class="line">var foo = new Foo();</div><div class="line">console.log(foo.x); //10</div></pre></td></tr></table></figure>
+</li>
+<li><p>但是如果直接调用 Foo 函数，而不是 new Foo()，这时候 Foo() 就变成普通函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>()&#123;</div><div class="line">    this.x = 10;</div><div class="line">    console.log(this);    //Window</div><div class="line">&#125;</div><div class="line">var foo = Foo();</div><div class="line">console.log(foo.x);//Uncaught TypeError: Cannot <span class="built_in">read</span> property <span class="string">'x'</span> of undefined</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4．构造函数的prototype属性"><a href="#4．构造函数的prototype属性" class="headerlink" title="4．构造函数的prototype属性"></a>4．构造函数的prototype属性</h4><p>构造函数的prototype属性也就是原型对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>()&#123;</div><div class="line">    this.x = 10;</div><div class="line">    this.xx=<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(this)  //Foo &#123;x: 10, xx: ƒ&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Foo.prototype.getX = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    console.log(this);        //Foo &#123;x: 10, xx: ƒ&#125;</div><div class="line">    console.log(this.x);      //10</div><div class="line">&#125;</div><div class="line">var foo = new Foo();</div><div class="line">foo.getX();</div></pre></td></tr></table></figure></p>
+<p>在整个原型链中this代表的也是当前对象的值。</p>
+<h4 id="5．函数用call-bind-apply调用"><a href="#5．函数用call-bind-apply调用" class="headerlink" title="5．函数用call,bind,apply调用"></a>5．函数用call,bind,apply调用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    x: 10</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</div><div class="line">    console.log(this);     //&#123;x: 10&#125;</div><div class="line">    console.log(this.x);   //10</div><div class="line">&#125;</div><div class="line">//foo.call(obj)=obj.foo;f.foo.call(obj)=obj.foo。</div><div class="line">//call和apply改变了函数的this上下文后便执行该函数, 而<span class="built_in">bind</span>则是返回改变了上下文的一个函数</div><div class="line"></div><div class="line">foo.call(obj);   //call(obj,arg1,arg2)</div><div class="line">foo.apply(obj);  //apply(obj,[arg1,arg2])</div><div class="line">foo.bind(obj)(); //还要再调用一下，多用于绑定回调函数</div></pre></td></tr></table></figure>
+<p>call,bind,apply可以改变this的指向，this的值就取传入的对象的值。第一个参数如果为undefined,null或空就相当于是window。</p>
+<h4 id="6．箭头函数"><a href="#6．箭头函数" class="headerlink" title="6．箭头函数"></a>6．箭头函数</h4><p>函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    x: 10,</div><div class="line">    foo: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        var fn = () =&gt; &#123;</div><div class="line">            <span class="built_in">return</span> () =&gt; &#123;</div><div class="line">                <span class="built_in">return</span> () =&gt; &#123;</div><div class="line">                    console.log(this);      //Object &#123;x: 10, foo: ƒ&#125;</div><div class="line">                    console.log(this.x);    //10</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        fn()()();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">obj.foo();</div></pre></td></tr></table></figure></p>
+<h4 id="7．vue的this"><a href="#7．vue的this" class="headerlink" title="7．vue的this"></a>7．vue的this</h4><blockquote>
+<p>注意，不应该使用箭头函数来定义 method 函数 (例如 plus: () =&gt; this.a++)。理由是箭头函数绑定了父级作用域的上下文，所以 this将不会按照期望指向 Vue实例，this.a将是 undefined。</p>
+</blockquote>
+<p>为了弄清楚这个，我们先来弄懂这些：</p>
+<ul>
+<li>我们在使用vue的时候总会先new vue({}),那么就是说vue其实是一个构造函数。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">A</span></span>()&#123;</div><div class="line">    this.a=3;</div><div class="line">    this.aa=&#123;</div><div class="line">        aaa:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            console.log(this,<span class="string">'this'</span>) //指向aaa它自己这个函数</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">A</span></span>()&#123;</div><div class="line">    this.a=3;</div><div class="line">    this.aa=&#123;</div><div class="line">        aaa:()=&gt;&#123;</div><div class="line">            console.log(this,<span class="string">'this'</span>)//箭头函数指向A这个函数，非箭头函数指向aaa这个函数</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var b=new A()</div><div class="line">b.aa.aaa()//箭头函数一开始就被定义指向了A,所以即使b是A的实例，this也不会指向b，而还是指向一开始生成被定义的A</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">add</span></span>()&#123;  //正常不是箭头函数的</div><div class="line">    console.log(this===a) // <span class="literal">true</span></div><div class="line">&#125;</div><div class="line">var a = &#123;&#125;;</div><div class="line">a[<span class="string">'add'</span>] = <span class="keyword">function</span>(args)&#123;</div><div class="line">    add.apply(a,[args]); //a.add();add的this就指向调用者a</div><div class="line">&#125;;</div><div class="line">a.add()</div><div class="line"></div><div class="line">//有箭头函数的，用`<span class="built_in">bind</span>,call,apply`无效</div><div class="line">var <span class="built_in">bind</span>=<span class="keyword">function</span>(fn,vm)&#123;</div><div class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        <span class="built_in">return</span> fn.apply(vm,arguments)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var a=&#123;<span class="string">'_a'</span>:3&#125;;</div><div class="line">var add=()=&gt;&#123;</div><div class="line">    console.log(this===a)//<span class="literal">false</span></div><div class="line">&#125;</div><div class="line">a[<span class="string">'add'</span>]=<span class="built_in">bind</span>(add,a)</div><div class="line">a.add()</div></pre></td></tr></table></figure>
+<p>那么下面我们来看它源码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> <span class="keyword">function</span> <span class="built_in">bind</span> (fn: Function, ctx: Object): Function &#123; //兼容重写<span class="built_in">bind</span>方法</div><div class="line">  <span class="keyword">function</span> boundFn (a) &#123;</div><div class="line">    const l: number = arguments.length</div><div class="line">    <span class="built_in">return</span> l</div><div class="line">      ? l &gt; 1</div><div class="line">        ? fn.apply(ctx, arguments)</div><div class="line">        : fn.call(ctx, a)</div><div class="line">      : fn.call(ctx)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  boundFn._length = fn.length</div><div class="line">  <span class="built_in">return</span> boundFn</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> initMethods (vm: Component) &#123;</div><div class="line">  const methods = vm.<span class="variable">$options</span>.methods</div><div class="line">  <span class="keyword">if</span> (methods) &#123;</div><div class="line">    <span class="keyword">for</span> (const key <span class="keyword">in</span> methods) &#123;</div><div class="line">      vm[key] = methods[key] == null ? noop : <span class="built_in">bind</span>(methods[key], vm) //如果是箭头函数此处用不了<span class="built_in">bind</span>,改不了this指向,(fn,vm)/vm.fn，this就指向vm</div><div class="line">      <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; methods[key] == null) &#123;</div><div class="line">        warn(</div><div class="line">          `method <span class="string">"<span class="variable">$&#123;key&#125;</span>"</span> has an undefined value <span class="keyword">in</span> the component definition. ` +</div><div class="line">          `Did you reference the <span class="keyword">function</span> correctly?`,</div><div class="line">          vm</div><div class="line">        )</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+            <a href="/tags/This/" rel="tag"># This</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/14/前端优化点/" rel="next" title="前端优化点">
+                <i class="fa fa-chevron-left"></i> 前端优化点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">杨林川</p>
+              <p class="site-description motion-element" itemprop="description">努力奋斗</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1．全局的this指向window"><span class="nav-number">1.</span> <span class="nav-text">1．全局的this指向window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2．对象方法"><span class="nav-number">2.</span> <span class="nav-text">2．对象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3．构造函数"><span class="nav-number">3.</span> <span class="nav-text">3．构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4．构造函数的prototype属性"><span class="nav-number">4.</span> <span class="nav-text">4．构造函数的prototype属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5．函数用call-bind-apply调用"><span class="nav-number">5.</span> <span class="nav-text">5．函数用call,bind,apply调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6．箭头函数"><span class="nav-number">6.</span> <span class="nav-text">6．箭头函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7．vue的this"><span class="nav-number">7.</span> <span class="nav-text">7．vue的this</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨林川</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
