@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Ajax(Asynchronous JavaScript and XML),可以理解为JavaScript执行异步网络请求。通俗的理解的话就是，如果没有Ajax技术，改变网页的一小部分（哪怕是一行文字、一张图片）都需要重新加载一次整个页面，而有了Ajax之后，就可以实现在网页不跳转不刷新的情况下，在网页后台提交数据，部分更新页面内容。">
+<meta name="description" content="Sass的控制命令@if @if指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true返回一个样式块，反之 false返回另一个样式块。在 Sass中除了 @if之外，还可以配合 @else if和 @else一起使用。">
 <meta name="keywords" content="CSS,SASS,SCSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SASS进阶">
 <meta property="og:url" content="http://yoursite.com/2017/02/11/SASS进阶/index.html">
 <meta property="og:site_name" content="Make Arduous Efforts">
-<meta property="og:description" content="Ajax(Asynchronous JavaScript and XML),可以理解为JavaScript执行异步网络请求。通俗的理解的话就是，如果没有Ajax技术，改变网页的一小部分（哪怕是一行文字、一张图片）都需要重新加载一次整个页面，而有了Ajax之后，就可以实现在网页不跳转不刷新的情况下，在网页后台提交数据，部分更新页面内容。">
+<meta property="og:description" content="Sass的控制命令@if @if指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true返回一个样式块，反之 false返回另一个样式块。在 Sass中除了 @if之外，还可以配合 @else if和 @else一起使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-10T04:55:22.707Z">
+<meta property="og:updated_time" content="2017-11-13T07:48:13.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SASS进阶">
-<meta name="twitter:description" content="Ajax(Asynchronous JavaScript and XML),可以理解为JavaScript执行异步网络请求。通俗的理解的话就是，如果没有Ajax技术，改变网页的一小部分（哪怕是一行文字、一张图片）都需要重新加载一次整个页面，而有了Ajax之后，就可以实现在网页不跳转不刷新的情况下，在网页后台提交数据，部分更新页面内容。">
+<meta name="twitter:description" content="Sass的控制命令@if @if指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true返回一个样式块，反之 false返回另一个样式块。在 Sass中除了 @if之外，还可以配合 @else if和 @else一起使用。">
 
 
 
@@ -362,328 +362,112 @@
       
 
       
-        <blockquote>
-<p>Ajax(Asynchronous JavaScript and XML),可以理解为JavaScript执行异步网络请求。通俗的理解的话就是，如果没有Ajax技术，改变网页的一小部分（哪怕是一行文字、一张图片）都需要重新加载一次整个页面，而有了Ajax之后，就可以实现在网页不跳转不刷新的情况下，在网页后台提交数据，部分更新页面内容。</p>
+        <h3 id="Sass的控制命令"><a href="#Sass的控制命令" class="headerlink" title="Sass的控制命令"></a>Sass的控制命令</h3><h5 id="if"><a href="#if" class="headerlink" title="@if"></a>@if</h5><blockquote>
+<p>@if指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true返回一个样式块，反之 false返回另一个样式块。在 Sass中除了 @if之外，还可以配合 @else if和 @else一起使用。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="JS中的Ajax"><a href="#JS中的Ajax" class="headerlink" title="JS中的Ajax"></a>JS中的Ajax</h2><h4 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h4><p>XMLHttpRequest 对象用于在后台与服务器交换数据，能够在不重新加载页面的情况下更新网页，在页面已加载后从服务器请求数据，在页面已加载后从服务器接收数据，在后台向服务器发送数据。所以XMLHttpRequest对象是Ajax技术的核心所在。</p>
-<h4 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h4><p>创建 XMLHttpRequest对象——&gt;打开请求地址，初始化数据——&gt;发送请求数据——&gt;监听回调函数状态——&gt;收到服务器返回的应答结果。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var xmlhttp;</div><div class="line"><span class="keyword">function</span> loadXMLDoc(url)&#123;</div><div class="line">	xmlhttp=null;</div><div class="line">	<span class="keyword">if</span> (window.XMLHttpRequest)&#123;// code <span class="keyword">for</span> all new browsers</div><div class="line">  		xmlhttp=new XMLHttpRequest();//在这里创建 XMLHttpRequest对象</div><div class="line">  	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (window.ActiveXObject)&#123;// code <span class="keyword">for</span> IE5 and IE6</div><div class="line">  		xmlhttp=new ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div><div class="line">  	&#125;</div><div class="line">  	<span class="keyword">if</span> (xmlhttp!=null)&#123;</div><div class="line">  		xmlhttp.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>); //请求的方式和请求地址</div><div class="line">  		xmlhttp.send(null);//发送请求</div><div class="line">  		xmlhttp.onreadystatechange=state_Change;//监听回调函数</div><div class="line">  	&#125;<span class="keyword">else</span>&#123;</div><div class="line">  		alert(<span class="string">"Your browser does not support XMLHTTP."</span>);</div><div class="line">  	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">state_Change</span></span>()&#123;//这里是回调函数</div><div class="line">	<span class="keyword">if</span> (xmlhttp.readyState==4&amp;&amp;xmlhttp.status==200)&#123; //当满足这两个条件时表示请求成功,完成响应 4 = <span class="string">"loaded"</span>, 200 = OK</div><div class="line">    var data=xmlhttp.responseText; //拿到服务器返回的数据</div><div class="line">        // ...our code here...在这里进行数据返回后的操作</div><div class="line">  	&#125;<span class="keyword">else</span>&#123;</div><div class="line">    	alert(<span class="string">"Problem retrieving XML data"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="原生写法中的注意点"><a href="#原生写法中的注意点" class="headerlink" title="原生写法中的注意点"></a>原生写法中的注意点</h4><h6 id="open-的第三个参数中使用了-“true”-该参数规定请求是否异步处理，默认是异步。True-表示脚本会在-send-方法之后继续执行，而不等待来自服务器的响应。"><a href="#open-的第三个参数中使用了-“true”-该参数规定请求是否异步处理，默认是异步。True-表示脚本会在-send-方法之后继续执行，而不等待来自服务器的响应。" class="headerlink" title="open() 的第三个参数中使用了 “true”,该参数规定请求是否异步处理，默认是异步。True 表示脚本会在 send() 方法之后继续执行，而不等待来自服务器的响应。"></a>open() 的第三个参数中使用了 “true”,该参数规定请求是否异步处理，默认是异步。True 表示脚本会在 send() 方法之后继续执行，而不等待来自服务器的响应。</h6><h6 id="关于readyState"><a href="#关于readyState" class="headerlink" title="关于readyState"></a>关于readyState</h6><table>
-<thead>
-<tr>
-<th>状态</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td style="text-align:center">Uninitialized</td>
-<td style="text-align:left">(未初始化)还没有调用send()方法</td>
-</tr>
-<tr>
-<td>1</td>
-<td style="text-align:center">Open</td>
-<td style="text-align:left">(载入)已调用send()方法，正在发送请求</td>
-</tr>
-<tr>
-<td>2</td>
-<td style="text-align:center">Sent</td>
-<td style="text-align:left">(载入完成)send()方法执行完成</td>
-</tr>
-<tr>
-<td>3</td>
-<td style="text-align:center">Receiving</td>
-<td style="text-align:left">(交互)正在解析响应内容</td>
-</tr>
-<tr>
-<td>4</td>
-<td style="text-align:center">Loaded</td>
-<td style="text-align:left">(完成)响应内容解析完成，可以在客户端调用了</td>
-</tr>
-</tbody>
-</table>
-<h6 id="关于status-常见HTTP状态码"><a href="#关于status-常见HTTP状态码" class="headerlink" title="关于status(常见HTTP状态码)"></a>关于status(常见HTTP状态码)</h6><table>
-<thead>
-<tr>
-<th>状态</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>101</td>
-<td style="text-align:left">切换协议，服务器根据客户端的请求切换协议</td>
-</tr>
-<tr>
-<td>200</td>
-<td style="text-align:left">请求成功。一般用于GET与POST请求</td>
-</tr>
-<tr>
-<td>301</td>
-<td style="text-align:left">永久重定向</td>
-</tr>
-<tr>
-<td>302</td>
-<td style="text-align:left">临时重定向</td>
-</tr>
-<tr>
-<td>303</td>
-<td style="text-align:left">与301类似。使用GET和POST请求查看</td>
-</tr>
-<tr>
-<td>304</td>
-<td style="text-align:left">请求资源未修改，使用缓存</td>
-</tr>
-<tr>
-<td>307</td>
-<td style="text-align:left">与302类似。使用GET请求重定向</td>
-</tr>
-<tr>
-<td>404</td>
-<td style="text-align:left">客户端请求失败</td>
-</tr>
-<tr>
-<td>408</td>
-<td style="text-align:left">请求超时</td>
-</tr>
-<tr>
-<td>500</td>
-<td style="text-align:left">内部服务器错误，无法完成请求</td>
-</tr>
-<tr>
-<td>505</td>
-<td style="text-align:left">服务器不支持请求的HTTP协议的版本，无法完成处理</td>
-</tr>
-</tbody>
-</table>
-<h2 id="jQuery中的Ajax"><a href="#jQuery中的Ajax" class="headerlink" title="jQuery中的Ajax"></a>jQuery中的Ajax</h2><blockquote>
-<p>JQuery对原生Ajax做了很好的封装，使用起来非常简单方便,具体的很多方法如 $.ajax，$.post， $.get， $.getJSON等能根据不同需要进行调用，写法更加简洁，但是为了兼顾各个方法在这里我以一个通用的方法 $.ajax为例做一个简单的解析,按照下面的模式写好各个参数,就能成功进行Ajax的请求了,可能在实际中使用 $.post， $.get 这两个方法使用比较多，但是理解$.ajax 这个通用的方法能对封装原理有很好的认识。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//假设要控制一个元素隐藏或显示，我们就可以定义一个混合宏，通过 @if...@else... 来判断传进参数的值来控制 display 的值</div><div class="line"></div><div class="line">//SCSS</div><div class="line">@mixin blockOrHidden($boolean:true) &#123;</div><div class="line">  @if $boolean &#123;</div><div class="line">      @debug &quot;$boolean is #&#123;$boolean&#125;&quot;;</div><div class="line">      display: block;</div><div class="line">    &#125;</div><div class="line">  @else &#123;</div><div class="line">      @debug &quot;$boolean is #&#123;$boolean&#125;&quot;;</div><div class="line">      display: none;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.block &#123; @include blockOrHidden; &#125;</div><div class="line">.hidden&#123; @include blockOrHidden(false); &#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.block &#123; display: block; &#125;</div><div class="line">.hidden &#123; display: none; &#125;</div></pre></td></tr></table></figure>
+<h5 id="for循环"><a href="#for循环" class="headerlink" title="@for循环"></a>@for循环</h5><blockquote>
+<p>在制作网格系统的时候，大家应该对 .col1~.col12这样的印象较深。在 CSS中你需要一个一个去书写，但在Sass中可以使用 @for循环来完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//在 Sass 的 @for 循环中有两种方式</div><div class="line">@for $i from &lt;start&gt; through &lt;end&gt;</div><div class="line">@for $i from &lt;start&gt; to &lt;end&gt;</div><div class="line"></div><div class="line">$i表示变量</div><div class="line">start 表示起始值</div><div class="line">end 表示结束值</div><div class="line"></div><div class="line">这两个的区别是关键字 through表示包括 end这个数，而 to则不包括 end这个数</div></pre></td></tr></table></figure></p>
+<p>through关键字例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">@for $i from 1 through 3 &#123;</div><div class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.item-1 &#123; width: 2em; &#125;</div><div class="line">.item-2 &#123; width: 4em; &#125;</div><div class="line">.item-3 &#123; width: 6em; &#125;</div></pre></td></tr></table></figure></p>
+<p>to关键字例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">@for $i from 1 to 3 &#123;</div><div class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.item-1 &#123; width: 2em; &#125;</div><div class="line">.item-2 &#123; width: 4em; &#125;</div></pre></td></tr></table></figure></p>
+<p>@for应用在网格系统生成各个格子class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">//SCSS </div><div class="line">$grid-prefix: span !default;</div><div class="line">$grid-width: 60px !default;</div><div class="line">$grid-gutter: 20px !default;</div><div class="line"></div><div class="line">%grid &#123;</div><div class="line">  float: left;</div><div class="line">  margin-left: $grid-gutter / 2;</div><div class="line">  margin-right: $grid-gutter / 2;</div><div class="line">&#125;</div><div class="line">@for $i from 1 through 12 &#123;</div><div class="line">  .#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</div><div class="line">    width: $grid-width * $i + $grid-gutter * ($i - 1);</div><div class="line">    @extend %grid;</div><div class="line">  &#125;  </div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 &#123;</div><div class="line">  float: left;</div><div class="line">  margin-left: 10px;</div><div class="line">  margin-right: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span1 &#123; width: 60px; &#125;</div><div class="line">.span2 &#123; width: 140px; &#125;</div><div class="line">.span3 &#123; width: 220px; &#125;</div><div class="line">.span4 &#123; width: 300px; &#125;</div><div class="line">.span5 &#123; width: 380px; &#125;</div><div class="line">.span6 &#123; width: 460px; &#125;</div><div class="line">.span7 &#123; width: 540px; &#125;</div><div class="line">.span8 &#123; width: 620px; &#125;</div><div class="line">.span9 &#123; width: 700px; &#125;</div><div class="line">.span10 &#123; width: 780px; &#125;</div><div class="line">.span11 &#123; width: 860px; &#125;</div><div class="line">.span12 &#123; width: 940px; &#125;</div><div class="line"></div><div class="line">//将 @for through 方式换成 @for to</div><div class="line">//SCSS</div><div class="line">@for $i from 1 to 13 &#123;</div><div class="line">  .#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</div><div class="line">    width: $grid-width * $i + $grid-gutter * ($i - 1);</div><div class="line">    @extend %grid;</div><div class="line">  &#125;  </div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">//其最终编译出来的 CSS 代码和上例所编译出来的一模一样</div></pre></td></tr></table></figure></p>
+<p>这两段 Sass 代码并无太多差别，只是 @for中的 <end> 取值不同。配合 through 的 <end> 值是 12，其遍历出来的终点值也是 12，和 <end> 值一样。配合 to 的 <end> 值是 13，其遍历出来的终点值是 12，就是 <end> 对就的值减去 1 。</end></end></end></end></end></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    <span class="built_in">type</span>:   //数据的提交方式：get和post</div><div class="line">    url:    //请求地址</div><div class="line">    async:   //是否支持异步刷新，默认是<span class="literal">true</span></div><div class="line">    data:    //需要提交的数据</div><div class="line">    dataType:   //服务器返回数据的类型，例如xml,String,Json等</div><div class="line">    success:<span class="keyword">function</span>(data)&#123;</div><div class="line">       </div><div class="line">    &#125;    //请求成功后的回调函数,参数data就是服务器返回的数据</div><div class="line">    error:<span class="keyword">function</span>(data)&#123;</div><div class="line">    &#125;   //请求失败后的回调函数，根据需要可以不写，一般只写上面的success回调函数</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="GET-or-POST"><a href="#GET-or-POST" class="headerlink" title="GET or POST?"></a>GET or POST?</h2><blockquote>
-<p>作为Ajax最常用的两种数据提交方式，GET和POST有着自己的特点和适用场景，正确区分GET和POST的不同并根据实际需要进行选用在开发中十分重要，简单但是关键！</p>
+<h5 id="while循环"><a href="#while循环" class="headerlink" title="@while循环"></a>@while循环</h5><blockquote>
+<p>@while指令也需要 SassScript表达式（像其它指令一样），并且会生成不同的样式块，直到表达式值为 false时停止循环。这个和 @for指令很相似，只要 @while后面的条件为 true就会执行。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line"><span class="variable">$types</span>: 4;</div><div class="line"><span class="variable">$type</span>-width: 20px;</div><div class="line"></div><div class="line">@<span class="keyword">while</span> <span class="variable">$types</span> &gt; 0 &#123;</div><div class="line">    .<span class="keyword">while</span>-<span class="comment">#&#123;$types&#125; &#123;</span></div><div class="line">        width: <span class="variable">$type</span>-width + <span class="variable">$types</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="variable">$types</span>: <span class="variable">$types</span> - 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.<span class="keyword">while</span>-4 &#123; width: 24px; &#125;</div><div class="line">.<span class="keyword">while</span>-3 &#123; width: 23px; &#125;</div><div class="line">.<span class="keyword">while</span>-2 &#123; width: 22px; &#125;</div><div class="line">.<span class="keyword">while</span>-1 &#123; width: 21px; &#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:left">GET</th>
-<th style="text-align:left">POST</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>后退按钮/刷新</td>
-<td style="text-align:left">无害</td>
-<td style="text-align:left">数据会被重新提交</td>
-</tr>
-<tr>
-<td>书签</td>
-<td style="text-align:left">可收藏为书签</td>
-<td style="text-align:left">不可收藏为书签</td>
-</tr>
-<tr>
-<td>缓存</td>
-<td style="text-align:left">能被缓存</td>
-<td style="text-align:left">不能被缓存</td>
-</tr>
-<tr>
-<td>编码类型</td>
-<td style="text-align:left">application/x-www-form-urlencoded</td>
-<td style="text-align:left">application/x-www-form-urlencoded或multipart/form-data。为二进制数据使用多重编码</td>
-</tr>
-<tr>
-<td>历史</td>
-<td style="text-align:left">参数保留在浏览器历史中</td>
-<td style="text-align:left">参数不会保留在浏览器历史中</td>
-</tr>
-<tr>
-<td>对数据长度的限制</td>
-<td style="text-align:left">最大长度为2048个字符</td>
-<td style="text-align:left">无限制</td>
-</tr>
-<tr>
-<td>对数据类型的限制</td>
-<td style="text-align:left">只允许ASCII字符</td>
-<td style="text-align:left">没有限制。也允许二进制数据</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td style="text-align:left">与POST相比安全性较差，在发送密码与敏感信息时不要使用</td>
-<td style="text-align:left">安全性更高，参数不会保存在 浏览器历史或Web服务器日志中</td>
-</tr>
-<tr>
-<td>可见性</td>
-<td style="text-align:left">数据用？拼接在URL中对所有人可见</td>
-<td style="text-align:left">数据不会显示在URL中</td>
-</tr>
-</tbody>
-</table>
-<h2 id="success和complete的区别"><a href="#success和complete的区别" class="headerlink" title="success和complete的区别"></a>success和complete的区别</h2><blockquote>
-<p>JQuery封装的Ajax回调函数中，success、error、complete是最常用的三个，其中，success和error很好区别，一个是请求成功调用的，另一个是请求失败调用的，从字面上就可以理解。但是success和complete容易混淆。</p>
+<h5 id="each循环"><a href="#each循环" class="headerlink" title="@each循环"></a>@each循环</h5><blockquote>
+<p>@each 循环就是去遍历一个列表，然后从列表中取出对应的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//@each 循环指令的形式</div><div class="line">@each $var in &lt;list&gt;</div><div class="line"></div><div class="line">$var就是一个变量名</div><div class="line">&lt;list&gt;是一个 SassScript表达式，他将返回一个列表值</div><div class="line">变量 $var会在列表中做遍历，并且遍历出与 $var对应的样式块</div></pre></td></tr></table></figure></p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">$list: adam john wynn mason kuroir;//$list 就是一个列表</div><div class="line"></div><div class="line">@mixin author-images &#123;</div><div class="line">    @each $author in $list &#123;</div><div class="line">        .photo-#&#123;$author&#125; &#123;</div><div class="line">            background: url(&quot;/images/avatars/#&#123;$author&#125;.png&quot;) no-repeat;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.author-bio &#123; @include author-images; &#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.author-bio .photo-adam &#123; background: url(&quot;/images/avatars/adam.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-john &#123; background: url(&quot;/images/avatars/john.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-wynn &#123; background: url(&quot;/images/avatars/wynn.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-mason &#123; background: url(&quot;/images/avatars/mason.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-kuroir &#123; background: url(&quot;/images/avatars/kuroir.png&quot;) no-repeat; &#125;</div></pre></td></tr></table></figure>
+<h4 id="Sass的函数功能-字符串与数字函数"><a href="#Sass的函数功能-字符串与数字函数" class="headerlink" title="Sass的函数功能-字符串与数字函数"></a>Sass的函数功能-字符串与数字函数</h4><h5 id="函数简介"><a href="#函数简介" class="headerlink" title="函数简介"></a>函数简介</h5><blockquote>
+<p>在 Sass中除了可以定义变量，具有 @extend、%placeholder 和 mixins等特性之外，还自备了一系列的函数功能。</p>
 <ul>
-<li>success:请求成功后回调函数。</li>
-<li>complete:请求完成后回调函数 (请求成功或失败时均调用)。</li>
+<li>字符串函数</li>
+<li>数字函数</li>
+<li>列表函数</li>
+<li>颜色函数</li>
+<li>Introspection函数</li>
+<li>三元函数等<br>当然除了自备的函数功能之外，我们还可以根据自己的需求定义函数功能，常常称之为自定义函数。</li>
 </ul>
-<p>区别就在于complete只要请求完成，不论是成功还是失败均会调用。也就是说如果调用了success，一定会调用complete；反过来调用了complete，不一定会调用success。(状态码404、403、301、302…都会进入complete，只要不出错就会调用)。</p>
-<h2 id="XML-gt-JSON"><a href="#XML-gt-JSON" class="headerlink" title="XML -&gt; JSON"></a>XML -&gt; JSON</h2><blockquote>
-<p>Ajax中的是 “x” 指的就是XML。</p>
 </blockquote>
-<ul>
-<li>xml:可扩展标记语言，标准通用标记语言的子集，是一种用于标记电子文件使其具有结构性的标记语言。</li>
-<li>json:现在主流的数据交互格式，前后端的交互标准，无论是前端提交给后台的数据，还是后台返回给前端的数据，都最好统一为json格式，各自接收到数据后再解析数据即可供后续使用。所以 “Ajax” 实际上已经发展为 “Ajaj”。</li>
+<h5 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h5><h6 id="unquote"><a href="#unquote" class="headerlink" title="unquote()"></a>unquote()</h6><ul>
+<li>unquote($string)：删除字符串中的引号</li>
+<li>quote($string)：给字符串添加引号</li>
 </ul>
-<h2 id="JSON和JSONP"><a href="#JSON和JSONP" class="headerlink" title="JSON和JSONP"></a>JSON和JSONP</h2><blockquote>
-<p>json 和 jsonp 看起来只相差了一个 “p” ，然而实际上根本不是一个东西，千万别以为是差不多的两个概念。</p>
+<blockquote>
+<p>unquote()函数主要是用来删除一个字符串中的引号，如果这个字符串没有带有引号，将返回原始的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">.test1 &#123; content: unquote(&apos;Hello Sass!&apos;);&#125;</div><div class="line">.test2 &#123; content: unquote(&quot;&apos;Hello Sass!&quot;);&#125;</div><div class="line">.test3 &#123; content: unquote(&quot;I&apos;m Web Designer&quot;);&#125;</div><div class="line">.test4 &#123; content: unquote(&quot;&apos;Hello Sass!&apos;&quot;);&#125;</div><div class="line">.test5 &#123; content: unquote(&apos;&quot;Hello Sass!&quot;&apos;);&#125;</div><div class="line">.test6 &#123; content: unquote(Hello Sass);&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.test1 &#123; content: Hello Sass!; &#125;</div><div class="line">.test2 &#123; content: &apos;Hello Sass!; &#125;</div><div class="line">.test3 &#123; content: I&apos;m Web Designer; &#125;</div><div class="line">.test4 &#123; content: &apos;Hello Sass!&apos;; &#125;</div><div class="line">.test5 &#123; content: &quot;Hello Sass!&quot;; &#125;</div><div class="line">.test6 &#123; content: Hello Sass; &#125;</div></pre></td></tr></table></figure></p>
+<p>从代码中可以看出，unquote()函数只能删除字符串最前和最后的引号（双引号或单引号），而无法删除字符串中间的引号。如果字符没有带引号，返回的将是字符串本身。</p>
 </blockquote>
-<ul>
-<li>json：(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。</li>
-<li>jsonp：一种借助“script”元素解决主流浏览器的跨域数据访问问题的方式。</li>
-</ul>
-<h2 id="Ajax跨域访问"><a href="#Ajax跨域访问" class="headerlink" title="Ajax跨域访问"></a>Ajax跨域访问</h2><blockquote>
-<p>ajax的请求与访问同样会受到浏览器同源策略的限制，不能访问不同主域中的地址。</p>
+<h6 id="quote"><a href="#quote" class="headerlink" title="quote()"></a>quote()</h6><blockquote>
+<p>quote()函数刚好与unquote()函数功能相反，主要用来给字符串添加引号。如果字符串，自身带有引号会统一换成双引号 “”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">.test1 &#123; content: quote(&apos;Hello Sass!&apos;); &#125;</div><div class="line">.test2 &#123; content: quote(&quot;Hello Sass!&quot;); &#125;</div><div class="line">.test3 &#123; content: quote(ImWebDesigner); &#125;</div><div class="line">.test4 &#123; content: quote(&apos; &apos;); &#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.test1 &#123; content: &quot;Hello Sass!&quot;; &#125;</div><div class="line">.test2 &#123; content: &quot;Hello Sass!&quot;; &#125;</div><div class="line">.test3 &#123; content: &quot;ImWebDesigner&quot;; &#125;</div><div class="line">.test4 &#123; content: &quot;&quot;; &#125;</div></pre></td></tr></table></figure></p>
+<p>使用 quote()函数只能给字符串增加双引号，而且字符串中间有单引号或者空格时，需要用单引号或双引号括起，否则编译的时候将会报错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">.test1 &#123; content: quote(Hello Sass);&#125;</div><div class="line"></div><div class="line">//报错</div><div class="line">error style.scss (Line 13: $string: (&quot;Hello&quot;&quot;Sass&quot;) is not a string for `quote&apos;)</div><div class="line"></div><div class="line">//解决方案就是去掉空格，或者加上引号：</div><div class="line"></div><div class="line">//SCSS</div><div class="line">.test1 &#123; content: quote(HelloSass); &#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.test1 &#123; content: quote(&quot;Hello Sass&quot;); &#125;</div></pre></td></tr></table></figure></p>
+<p>同时 quote()碰到特殊符号，比如： !、?、&gt; 等，除中折号 - 和 下划线_都需要使用双引号括起，否则编译器在进行编译的时候同样会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">error style.scss (Line 13: Invalid CSS after &quot;...quote(HelloSass&quot;: expected &quot;)&quot;, was &quot;!);&quot;)</div><div class="line">error style.scss (Line 16: Invalid CSS after &quot;...t:  quote(Hello&quot;: expected &quot;)&quot;, was “?);&quot;)</div></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="请求头信息"><a href="#请求头信息" class="headerlink" title="请求头信息"></a>请求头信息</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">name</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Accept</td>
-<td style="text-align:left">客户端支持的数据类型</td>
-</tr>
-<tr>
-<td style="text-align:left">Accept-Charset</td>
-<td style="text-align:left">客户端采用的编码</td>
-</tr>
-<tr>
-<td style="text-align:left">Accept-Encoding</td>
-<td style="text-align:left">客户端支持的数据压缩格式</td>
-</tr>
-<tr>
-<td style="text-align:left">Accept-Language</td>
-<td style="text-align:left">客户端的语言环境</td>
-</tr>
-<tr>
-<td style="text-align:left">Cookie</td>
-<td style="text-align:left">客服端的cookie</td>
-</tr>
-<tr>
-<td style="text-align:left">Host</td>
-<td style="text-align:left">请求的服务器地址</td>
-</tr>
-<tr>
-<td style="text-align:left">Connection</td>
-<td style="text-align:left">客户端与服务连接类型</td>
-</tr>
-<tr>
-<td style="text-align:left">If-Modified-Since</td>
-<td style="text-align:left">上一次请求资源的缓存时间，与Last-Modified对应</td>
-</tr>
-<tr>
-<td style="text-align:left">If-None-Match</td>
-<td style="text-align:left">客户段缓存数据的唯一标识，与Etag对应</td>
-</tr>
-<tr>
-<td style="text-align:left">Referer</td>
-<td style="text-align:left">发起请求的源地址</td>
-</tr>
-</tbody>
-</table>
-<h2 id="响应头信息"><a href="#响应头信息" class="headerlink" title="响应头信息"></a>响应头信息</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">name</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">content-encoding</td>
-<td style="text-align:left">响应数据的压缩格式</td>
-</tr>
-<tr>
-<td style="text-align:left">content-length</td>
-<td style="text-align:left">响应数据的长度</td>
-</tr>
-<tr>
-<td style="text-align:left">content-language</td>
-<td style="text-align:left">语言环境</td>
-</tr>
-<tr>
-<td style="text-align:left">content-type</td>
-<td style="text-align:left">响应数据的类型</td>
-</tr>
-<tr>
-<td style="text-align:left">Date</td>
-<td style="text-align:left">消息发送的时间</td>
-</tr>
-<tr>
-<td style="text-align:left">Age</td>
-<td style="text-align:left">经过的时间</td>
-</tr>
-<tr>
-<td style="text-align:left">Etag</td>
-<td style="text-align:left">被请求变量的实体值,用于判断请求的资源是否发生变化</td>
-</tr>
-<tr>
-<td style="text-align:left">Expires</td>
-<td style="text-align:left">缓存的过期时间</td>
-</tr>
-<tr>
-<td style="text-align:left">Last-Modified</td>
-<td style="text-align:left">在服务器端最后被修改的时间</td>
-</tr>
-<tr>
-<td style="text-align:left">server</td>
-<td style="text-align:left">服务器的型号</td>
-</tr>
-</tbody>
-</table>
-<h2 id="两者都可能出现的消息"><a href="#两者都可能出现的消息" class="headerlink" title="两者都可能出现的消息"></a>两者都可能出现的消息</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">name</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Pragma</td>
-<td style="text-align:left">是否缓存(http1.0提出)</td>
-</tr>
-<tr>
-<td style="text-align:left">Cache-Control</td>
-<td style="text-align:left">是否缓存(http1.1提出)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="跟缓存相关的字段"><a href="#跟缓存相关的字段" class="headerlink" title="跟缓存相关的字段"></a>跟缓存相关的字段</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">强制缓存</th>
-<th style="text-align:left">对比缓存</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">expire</td>
-<td style="text-align:left">Last-Modified 和 If-Modified-Since</td>
-</tr>
-<tr>
-<td style="text-align:left">cache-control</td>
-<td style="text-align:left">Etag 和 If-None-Match</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Ajax的优缺点"><a href="#Ajax的优缺点" class="headerlink" title="Ajax的优缺点"></a>Ajax的优缺点</h2><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>1.页面无刷新，在页面内与服务器通信，减少用户等待时间，增强了用户体验。<br>2.使用异步方式与服务器通信，响应速度更快。<br>3.可以把一些原本服务器的工作转接到客户端，利用客户端闲置的能力来处理，减轻了服务器和带宽的负担，节约空间和宽带租用成本。<br>4.基于标准化的并被广泛支持的技术，不需要下载插件或者小程序。</p>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>1.无法进行操作的后退，即不支持浏览器的页面后退。<br>2.对搜索引擎的支持比较弱。<br>3.可能会影响程序中的异常处理机制。<br>4.安全问题，对一些网站攻击，如csrf、xxs、sql注入等不能很好地防御。</p>
+<h6 id="To-upper-case"><a href="#To-upper-case" class="headerlink" title="To-upper-case()"></a>To-upper-case()</h6><blockquote>
+<p>To-upper-case() 函数将字符串小写字母转换成大写字母<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">.test &#123;</div><div class="line">  text: to-upper-case(aaaaa);</div><div class="line">  text: to-upper-case(aA-aAAA-aaa);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.test &#123;</div><div class="line">    text: AAAAA;</div><div class="line">    text: AA-AAAA-AAA;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="To-lower-case"><a href="#To-lower-case" class="headerlink" title="To-lower-case()"></a>To-lower-case()</h6><blockquote>
+<p>To-lower-case()函数 与 To-upper-case()刚好相反，将字符串转换成小写字母<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//SCSS</div><div class="line">.test &#123;</div><div class="line">  text: to-lower-case(AAAAA);</div><div class="line">  text: to-lower-case(aA-aAAA-aaa);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.test &#123;</div><div class="line">    text: aaaaa;</div><div class="line">    text: aa-aaaa-aaa;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="数字函数"><a href="#数字函数" class="headerlink" title="数字函数"></a>数字函数</h5><h6 id="percentage"><a href="#percentage" class="headerlink" title="percentage()"></a>percentage()</h6><blockquote>
+<p>percentage()函数主要是将数字转换成百分比形式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">percentage(.2) //20%</div><div class="line">percentage(2px / 10px) //20%</div><div class="line">percentage(2em / 10em) //20%</div><div class="line"></div><div class="line">//SCSS</div><div class="line">.footer&#123; width : percentage(.2); &#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.footer&#123; width : 20%; &#125;</div><div class="line"></div><div class="line">//如果你转换的值带有单位不统一，那么在编译的时候会报错</div><div class="line">percentage(2px / 10em) //报错，SyntaxError: $value: 0.2px/em is not a unitless number for `percentage&apos;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="round"><a href="#round" class="headerlink" title="round()"></a>round()</h6><blockquote>
+<p>round()函数可以将一个数四舍五入为一个最接近的整数,在round()函数中可以携带带单位的任何数值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">round(12.3) //12</div><div class="line">round(12.5) //13</div><div class="line">round(1.49999) //1</div><div class="line">round(2.0) //2</div><div class="line">round(20%) //20%</div><div class="line">round(2.2%) //2%</div><div class="line">round(3.9em) //4em</div><div class="line">round(2.3px) //2px</div><div class="line">round(2px / 3px) //1</div><div class="line">round(1px / 3px) //0</div><div class="line">round(3px / 2em) //2px/em</div><div class="line"></div><div class="line">//SCSS</div><div class="line">.footer &#123; width:round(12.3px);&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.footer &#123; width: 12px; &#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="ceil"><a href="#ceil" class="headerlink" title="ceil()"></a>ceil()</h6><blockquote>
+<p>ceil()函数将一个数转换成最接近于自己的整数，会将一个大于自身的任何小数转换成大于本身 1的整数。也就是只做入，不做舍的计算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ceil(2.0) //2</div><div class="line">ceil(2.1) //3</div><div class="line">ceil(2.6) //3</div><div class="line">ceil(2.3%) //3%</div><div class="line">ceil(2.3px) //3px</div><div class="line">ceil(2.5px) //3px</div><div class="line">ceil(2px / 3px) //1</div><div class="line">ceil(2% / 3px) //1%/px</div><div class="line">ceil(1em / 5px) //1em/px</div><div class="line"></div><div class="line">//SCSS</div><div class="line">.footer &#123; width:ceil(12.3px);&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.footer &#123; width: 13px; &#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="floor"><a href="#floor" class="headerlink" title="floor()"></a>floor()</h6><blockquote>
+<p>floor()函数刚好与 ceil()函数功能相反，其主要将一个数去除其小数部分，并且不做任何的进位。也就是只做舍，不做入的计算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">floor(2.1) //2</div><div class="line">floor(2.5) //2</div><div class="line">floor(3.5%) //3%</div><div class="line">floor(10.2px) //10px</div><div class="line">floor(10.8em) //10em</div><div class="line">floor(2px / 10px) //0</div><div class="line">floor(3px / 1em) //3px/em</div><div class="line"></div><div class="line">//SCSS</div><div class="line">.footer &#123; width:floor(12.3px);&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.footer &#123; width: 12px; &#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="abs"><a href="#abs" class="headerlink" title="abs()"></a>abs()</h6><blockquote>
+<p>abs()函数会返回一个数的绝对值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">abs(10) //10</div><div class="line">abs(-10) //10</div><div class="line">abs(-10px) //10px</div><div class="line">abs(-2em) //2em</div><div class="line">abs(-.5%) //0.5%</div><div class="line">abs(-1px / 2px) //0.5</div><div class="line"></div><div class="line">//SCSS</div><div class="line">.footer &#123; width:abs(-12.3px);&#125;</div><div class="line"></div><div class="line">//CSS</div><div class="line">.footer &#123; width: 12.3px; &#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="min"><a href="#min" class="headerlink" title="min()"></a>min()</h6><blockquote>
+<p>min()函数功能主要是在多个数之中找到最小的一个，这个函数可以设置任意多个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">min(1px,2px,3px) //1px</div><div class="line"></div><div class="line">//携带单位必须要统一</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="max"><a href="#max" class="headerlink" title="max()"></a>max()</h6><blockquote>
+<p>max()函数和 min()函数一样，不同的是max()函数用来获取一系列数中的最大那个值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">min(1px,2px,3px) //3px</div><div class="line"></div><div class="line">//携带单位必须要统一</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="random"><a href="#random" class="headerlink" title="random()"></a>random()</h6><blockquote>
+<p>获取0~1数字间随机数</p>
+</blockquote>
+<h5 id="列表函数"><a href="#列表函数" class="headerlink" title="列表函数"></a>列表函数</h5><h6 id="length"><a href="#length" class="headerlink" title="length()"></a>length()</h6><blockquote>
+<p>返回一个列表的长度值<br>length($list)函数中的列表参数之间使用空格隔开，不能使用逗号，否则函数将会出错</p>
+</blockquote>
+<h6 id="nth"><a href="#nth" class="headerlink" title="nth()"></a>nth()</h6><blockquote>
+<p>nth()函数用来指定列表中某个位置的值<br>nth($list,$n)，函数中的 $n 必须是大于 0 的整数</p>
+</blockquote>
+<h6 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h6><blockquote>
+<p>join($list1, $list2, [$separator]) 将两个列给连接在一起，变成一个列表</p>
+</blockquote>
+<h6 id="append"><a href="#append" class="headerlink" title="append()"></a>append()</h6><blockquote>
+<p>append($list1, $val, [$separator]) 将某个值放在列表的最后</p>
+</blockquote>
+<h6 id="zip"><a href="#zip" class="headerlink" title="zip()"></a>zip()</h6><blockquote>
+<p>zip($lists…) 将几个列表结合成一个多维的列表</p>
+</blockquote>
+<h6 id="index"><a href="#index" class="headerlink" title="index()"></a>index()</h6><blockquote>
+<p>index($list, $value)返回一个值在列表中的位置值（序号从1开始）</p>
+</blockquote>
+<h5 id="Introspection函数"><a href="#Introspection函数" class="headerlink" title="Introspection函数"></a>Introspection函数</h5><h6 id="type-of"><a href="#type-of" class="headerlink" title="type-of()"></a>type-of()</h6><blockquote>
+<p>type-of()函数主要用来判断一个值是属于什么类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">number 为数值型</div><div class="line">string 为字符串型</div><div class="line">bool 为布尔型</div><div class="line">color 为颜色型</div><div class="line"></div><div class="line">type-of(100) //&quot;number&quot;</div><div class="line">type-of(100px) //&quot;number&quot;</div><div class="line">type-of(&quot;asdf&quot;) //&quot;string&quot;</div><div class="line">type-of(asdf)  //&quot;string&quot;</div><div class="line">type-of(true) //&quot;bool&quot;</div><div class="line">type-of(false) //&quot;bool&quot;</div><div class="line">type-of(#fff) //&quot;color&quot;</div><div class="line">type-of(blue) //&quot;color&quot;</div><div class="line">type-of(1 / 2 = 1) //&quot;string&quot;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="unit"><a href="#unit" class="headerlink" title="unit()"></a>unit()</h6><blockquote>
+<p>unit($number)返回一个值的单位</p>
+</blockquote>
+<h6 id="unitless"><a href="#unitless" class="headerlink" title="unitless()"></a>unitless()</h6><blockquote>
+<p>unitless($number)判断一个值是否带有单位</p>
+</blockquote>
+<h6 id="comparable"><a href="#comparable" class="headerlink" title="comparable()"></a>comparable()</h6><blockquote>
+<p>comparable($number-1, $number-2) 判断两个值是否可以做加、减和合并</p>
+</blockquote>
+<h5 id="Miscellaneous函数"><a href="#Miscellaneous函数" class="headerlink" title="Miscellaneous函数"></a>Miscellaneous函数</h5><blockquote>
+<p>在这里把 Miscellaneous 函数称为三元条件函数，主要因为他和 JavaScript 中的三元判断非常的相似。他有两个值，当条件成立返回一种值，当条件不成立时返回另一种值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if($condition,$if-true,$if-false)</div><div class="line"></div><div class="line">//上面表达式的意思是当 $condition 条件成立时，返回的值为 $if-true，否则返回的是 $if-false值</div><div class="line"></div><div class="line">if(true,1px,2px) //1px</div><div class="line">if(false,1px,2px) //2px</div></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
@@ -860,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的Ajax"><span class="nav-number">1.</span> <span class="nav-text">JS中的Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XMLHttpRequest对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现流程"><span class="nav-number">1.0.2.</span> <span class="nav-text">实现流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原生写法中的注意点"><span class="nav-number">1.0.3.</span> <span class="nav-text">原生写法中的注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#open-的第三个参数中使用了-“true”-该参数规定请求是否异步处理，默认是异步。True-表示脚本会在-send-方法之后继续执行，而不等待来自服务器的响应。"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">open() 的第三个参数中使用了 “true”,该参数规定请求是否异步处理，默认是异步。True 表示脚本会在 send() 方法之后继续执行，而不等待来自服务器的响应。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#关于readyState"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">关于readyState</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#关于status-常见HTTP状态码"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">关于status(常见HTTP状态码)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的Ajax"><span class="nav-number">2.</span> <span class="nav-text">jQuery中的Ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-or-POST"><span class="nav-number">3.</span> <span class="nav-text">GET or POST?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#success和complete的区别"><span class="nav-number">4.</span> <span class="nav-text">success和complete的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-gt-JSON"><span class="nav-number">5.</span> <span class="nav-text">XML -> JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON和JSONP"><span class="nav-number">6.</span> <span class="nav-text">JSON和JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax跨域访问"><span class="nav-number">7.</span> <span class="nav-text">Ajax跨域访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求头信息"><span class="nav-number">8.</span> <span class="nav-text">请求头信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应头信息"><span class="nav-number">9.</span> <span class="nav-text">响应头信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者都可能出现的消息"><span class="nav-number">10.</span> <span class="nav-text">两者都可能出现的消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跟缓存相关的字段"><span class="nav-number">11.</span> <span class="nav-text">跟缓存相关的字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax的优缺点"><span class="nav-number">12.</span> <span class="nav-text">Ajax的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">12.0.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">12.0.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sass的控制命令"><span class="nav-number">1.</span> <span class="nav-text">Sass的控制命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#if"><span class="nav-number">1.0.1.</span> <span class="nav-text">@if</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">1.0.2.</span> <span class="nav-text">@for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while循环"><span class="nav-number">1.0.3.</span> <span class="nav-text">@while循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#each循环"><span class="nav-number">1.0.4.</span> <span class="nav-text">@each循环</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sass的函数功能-字符串与数字函数"><span class="nav-number">1.1.</span> <span class="nav-text">Sass的函数功能-字符串与数字函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#unquote"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">unquote()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#quote"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">quote()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#To-upper-case"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">To-upper-case()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#To-lower-case"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">To-lower-case()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数字函数"><span class="nav-number">1.1.3.</span> <span class="nav-text">数字函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#percentage"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">percentage()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#round"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">round()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ceil"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">ceil()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#floor"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">floor()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#abs"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">abs()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#min"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">min()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#max"><span class="nav-number">1.1.3.7.</span> <span class="nav-text">max()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#random"><span class="nav-number">1.1.3.8.</span> <span class="nav-text">random()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#列表函数"><span class="nav-number">1.1.4.</span> <span class="nav-text">列表函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#length"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">length()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#nth"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">nth()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#join"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#append"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">append()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#zip"><span class="nav-number">1.1.4.5.</span> <span class="nav-text">zip()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#index"><span class="nav-number">1.1.4.6.</span> <span class="nav-text">index()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Introspection函数"><span class="nav-number">1.1.5.</span> <span class="nav-text">Introspection函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#type-of"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">type-of()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#unit"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">unit()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#unitless"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">unitless()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#comparable"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">comparable()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Miscellaneous函数"><span class="nav-number">1.1.6.</span> <span class="nav-text">Miscellaneous函数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
