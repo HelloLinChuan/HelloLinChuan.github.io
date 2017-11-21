@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Make Arduous Efforts">
 <meta property="og:description" content="在JavaScript中使用变量很重要的一方面就是变量的提升 ——它决定了一个变量何时可以被你的代码使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-21T08:48:04.193Z">
+<meta property="og:updated_time" content="2017-11-21T09:04:33.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript变量提升">
 <meta name="twitter:description" content="在JavaScript中使用变量很重要的一方面就是变量的提升 ——它决定了一个变量何时可以被你的代码使用。">
@@ -376,9 +376,9 @@
 </ul>
 </blockquote>
 <p>这个过程通常是像这样执行的：首先声明一个变量，然后用一个值给它初始化，最后就是使用它。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 声明</div><div class="line">var strNumber;</div><div class="line">// 初始化</div><div class="line">strNumber = <span class="string">'16'</span>;</div><div class="line">// 使用</div><div class="line">parseInt(strNumber); // =&gt; 16</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 声明</div><div class="line">var strNumber;</div><div class="line">// 初始化</div><div class="line">strNumber = &apos;16&apos;;</div><div class="line">// 使用</div><div class="line">parseInt(strNumber); // =&gt; 16</div></pre></td></tr></table></figure>
 <p>在函数中可以先声明，后使用;初始化被忽略掉了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 声明</div><div class="line"><span class="keyword">function</span> sum(a, b) &#123;</div><div class="line">  <span class="built_in">return</span> a + b;</div><div class="line">&#125;</div><div class="line">// 使用</div><div class="line">sum(5, 6); // =&gt; 11</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 声明</div><div class="line">function sum(a, b) &#123;</div><div class="line">  return a + b;</div><div class="line">&#125;</div><div class="line">// 使用</div><div class="line">sum(5, 6); // =&gt; 11</div></pre></td></tr></table></figure>
 <p>JavaScript并没有严格遵循这个顺序，因此提供了更多的灵活性。比如，函数的使用可以在声明之前。下面的例子先调用了函数double(5)，然后才声明该函数function double(num) {…}：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 使用</div><div class="line">double(5); // =&gt; 10</div><div class="line">// 声明</div><div class="line">function double(num) &#123;</div><div class="line">  return num * 2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这是因为JavaScript中的函数声明会被提升到作用域顶部。</p>
@@ -420,7 +420,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function double(number) &#123;</div><div class="line">   // 常量TWO的临时死亡区间</div><div class="line">   console.log(TWO); // ReferenceError: TWO is not defined</div><div class="line">   const TWO = 2;</div><div class="line">   // 常量TWO的临时死亡区间至此结束</div><div class="line">   return number * TWO;</div><div class="line">&#125;</div><div class="line">double(5); // =&gt; 10</div></pre></td></tr></table></figure>
 <p>由于在声明之前使用常量会导致JavaScript抛出异常。因此使用常量时应该始终先声明，初始化，然后再使用。</p>
 <h4 id="5．函数声明"><a href="#5．函数声明" class="headerlink" title="5．函数声明"></a>5．函数声明</h4><p>函数声明使用提供的名称和参数创建一个函数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isOdd(number) &#123;</div><div class="line">   <span class="built_in">return</span> number % 2 === 1;</div><div class="line">&#125;</div><div class="line">isOdd(5); // =&gt; <span class="literal">true</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function isOdd(number) &#123;</div><div class="line">   return number % 2 === 1;</div><div class="line">&#125;</div><div class="line">isOdd(5); // =&gt; true</div></pre></td></tr></table></figure>
 <p>function isOdd(number) {…}就是一段定义函数的声明。isOdd()用来验证一个数字是否是奇数。</p>
 <p>函数声明的提升允许你在所属作用域内任何地方使用该函数，即使是在声明之前也可以。换句话说，函数可以在当前作用域或子作用域内的任何地方访问(不会是undefined值，没有临时死亡区间，不会抛出异常)。</p>
 <p>这种提升的行为非常灵活。不管是先使用，后声明，还是先声明，后使用都可以:</p>
@@ -482,6 +482,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/04/JavaScript常用API/" rel="prev" title="JavaScript常用API">
+                JavaScript常用API <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -558,7 +562,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
