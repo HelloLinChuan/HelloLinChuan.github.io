@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="用户体验，界面," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="用户在使用产品时的状态：1.等待、2.初始、3.寻找、4.无数据、5.浏览、6.确认、7.错误、8.结束、9.中断">
+<meta name="keywords" content="用户体验，界面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用户体验设计的9种状态">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/19、用户体验设计的9种状态/index.html">
+<meta property="og:site_name" content="Make Arduous Efforts">
+<meta property="og:description" content="用户在使用产品时的状态：1.等待、2.初始、3.寻找、4.无数据、5.浏览、6.确认、7.错误、8.结束、9.中断">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pbad4floi.bkt.clouddn.com/805887.png">
+<meta property="og:image" content="http://pbad4floi.bkt.clouddn.com/805888.png">
+<meta property="og:image" content="http://pbad4floi.bkt.clouddn.com/805912.png">
+<meta property="og:image" content="http://pbad4floi.bkt.clouddn.com/805891.png">
+<meta property="og:image" content="http://pbad4floi.bkt.clouddn.com/805892.png">
+<meta property="og:image" content="http://pbad4floi.bkt.clouddn.com/805893.png">
+<meta property="og:image" content="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-10.png">
+<meta property="og:image" content="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-11.png">
+<meta property="og:image" content="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-12.png">
+<meta property="og:image" content="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-14.png">
+<meta property="og:updated_time" content="2018-07-18T16:03:44.802Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用户体验设计的9种状态">
+<meta name="twitter:description" content="用户在使用产品时的状态：1.等待、2.初始、3.寻找、4.无数据、5.浏览、6.确认、7.错误、8.结束、9.中断">
+<meta name="twitter:image" content="http://pbad4floi.bkt.clouddn.com/805887.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/20/19、用户体验设计的9种状态/"/>
+
+
+
+
+
+  <title>用户体验设计的9种状态 | Make Arduous Efforts</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?aa8b271a5ab494184aeb82a998dc821f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Make Arduous Efforts</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">善莫大焉</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/19、用户体验设计的9种状态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨林川">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Make Arduous Efforts">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用户体验设计的9种状态</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T22:00:00+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/专业/" itemprop="url" rel="index">
+                    <span itemprop="name">专业</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>用户在使用产品时的状态：1.等待、2.初始、3.寻找、4.无数据、5.浏览、6.确认、7.错误、8.结束、9.中断 </p>
+</blockquote>
+<a id="more"></a>
+<h2 id="一-等待状态"><a href="#一-等待状态" class="headerlink" title="一.等待状态"></a>一.等待状态</h2><p>其实iOS 人机交互手册里，Apple 建议开发者尽量不要展示闪屏。就比如国外的app我们能发现一个共同点：</p>
+<p><img src="http://pbad4floi.bkt.clouddn.com/805887.png" alt="avatar"></p>
+<p>他们都没有引导页！那么，为什么国内的app都有启动页呢？原因就是如同以上三个app一样他们正在等待调接口刷数据，而这个时候用户可能会焦虑的等待，可能是接口的问题，也可能是网络的问题。而国内的app他们希望在这个3秒中的时间内不让用户看这一片白花花的页面，甚至可以利用这三秒钟打广告也好，宣传品牌也好，展示逼格也好。那么他们都有不同的目的：提高用户体验，减少等待焦虑；品牌效应；功能展示或者情怀。</p>
+<p>当然不同的产品所展示的启动页必然不一样，而我们这里主要需要说的是等待状态，根据产品使用人群的以及产品自身的定位来考虑启动页的形式，不呆滞，有缓冲。但是正真优秀的产品是不需要启动页的，努力优化程序，合理的缓存技术适当的异步任务调度等，让用户一打开app就停留在主页面只需要100-300毫秒的加载，这样优秀的产品还需要启动页？</p>
+<h2 id="二-初始状态"><a href="#二-初始状态" class="headerlink" title="二.初始状态"></a>二.初始状态</h2><p>刚步入初始状态，对于第一次进入App的用户来说其实是懵逼的，同时也是用户是否对这个App感兴趣的最关键时刻，这个时候请拿出12万分的激情以及真诚来欢迎用户，将最精华的部分展示出来，就好比相亲，许多相亲的结果就在第一印象。</p>
+<p><img src="http://pbad4floi.bkt.clouddn.com/805888.png" alt="avatar"></p>
+<p>那么设计师如何做好初始状态的页面呢?这边我总结了四点：</p>
+<h5 id="1、展示核心内容，并将其放大"><a href="#1、展示核心内容，并将其放大" class="headerlink" title="1、展示核心内容，并将其放大"></a>1、展示核心内容，并将其放大</h5><p>毫无疑问一个产品的核心内容以及核心竞争力的体验便是在初始状态中，这个产品到底能为他解决什么问题，这就和产品所具有的功能所提供的服务相关，只有当用户能用该产品切实解决问题并且用起来爽了，那他才会一直用。所以，在这个阶段，对首页而言，核心功能的展示和好的交互体验显的尤为重要。</p>
+<h5 id="2、告诉用户“他”在哪里"><a href="#2、告诉用户“他”在哪里" class="headerlink" title="2、告诉用户“他”在哪里"></a>2、告诉用户“他”在哪里</h5><p>用户初次使用产品一般会出现两种情况，第一种－明确知道该产品功能但是第一次使用；第二种－不知道该产品只是听说好用好玩就下载下来。那么对于第一种用户你需要告诉他核心功能以及其他附加功能，但是第二种用户就只需要先明确告诉他核心功能，还有当前页面是在哪儿，不要让用户迷茫，因为没有人能花许多精力来研究你产品的所有功能。</p>
+<h5 id="3、智能提供，让用户自己选择"><a href="#3、智能提供，让用户自己选择" class="headerlink" title="3、智能提供，让用户自己选择"></a>3、智能提供，让用户自己选择</h5><p>对于深度使用用户而言，首页是信息的集合，用户希望只要打开首页就能知晓最近的活动和通知，并且能看到好的内容推荐。所以，内容的推荐和即时更新会让用户感到满足。同时用户能关注到自己为自己制定的推送内容。</p>
+<h5 id="4、精致的UI界面"><a href="#4、精致的UI界面" class="headerlink" title="4、精致的UI界面"></a>4、精致的UI界面</h5><p>个性而不凌乱的配色，层次分明的信息展示，统一的控件及交互。对首次使用产品的用户而言，首页的好坏关系到用户对该产品的第一印象，用户第一眼看到的是界面，其次是内容。所以，在这个阶段，符合品牌的好的设计感和内容的丰富度会给用户的印象加分。</p>
+<h2 id="三-寻找-搜索-状态"><a href="#三-寻找-搜索-状态" class="headerlink" title="三.寻找(搜索)状态"></a>三.寻找(搜索)状态</h2><p>当我们在设计信息架构时，需要考虑目标用户的信息需求，为不同的用户匹配不同的信息匹配方式。那么一般我们将搜索分为四种：</p>
+<h5 id="1、目的性寻找-搜索"><a href="#1、目的性寻找-搜索" class="headerlink" title="1、目的性寻找(搜索)"></a>1、目的性寻找(搜索)</h5><p>举个例子，新房装修想买一组钢铁侠手办做装饰，那么我就打开淘宝输入钢铁侠手办1/4或者1/6，选择评价好的，价格低的店家就进行购买了，我知道在哪里能找到这样的手办，以及手办的类型，做工以及价格，所以我是带着明确的目标去寻找的。</p>
+<h5 id="2、无目的性寻找-搜索"><a href="#2、无目的性寻找-搜索" class="headerlink" title="2、无目的性寻找(搜索)"></a>2、无目的性寻找(搜索)</h5><p>举个例子：最近有了闲钱想置办一些手办，但是不知道买哪一种，随手输入了手办这个关键词，跳出来许许多多的手办，有些甚至称不上手办的玩偶也被列入了其中，这里就是信息不对称的结果。那么探索性搜索的局限性也非常大，那就是他对于平台的资源要求非常高。</p>
+<h5 id="3、全面性寻找-搜索"><a href="#3、全面性寻找-搜索" class="headerlink" title="3、全面性寻找(搜索)"></a>3、全面性寻找(搜索)</h5><p>举个例子，我想买一个海贼王手办，但是我想尽量搜索到我希望得到的全部内容，这时候用户（我）将会自己创造关键词进行搜索，例如万代海贼王手办，眼镜厂海贼王手办，tsume海贼王，海贼王手办景品等等。</p>
+<h5 id="4、重复性寻找-搜索"><a href="#4、重复性寻找-搜索" class="headerlink" title="4、重复性寻找(搜索)"></a>4、重复性寻找(搜索)</h5><p>举个例子，某一天我正在寻找我的钢铁侠手办，我找到了一家店铺卖的钢铁侠手办好评多，价格实惠，但是这时我被一件事打断了，导致之后我在想找这家店铺的名字我已经想不起来。所以这里对于用户的重复性寻找我们需要给出一个历史搜索记录来提供给用户。 </p>
+<p><img src="http://pbad4floi.bkt.clouddn.com/805912.png" alt="avatar"></p>
+<h2 id="四-无数据状态"><a href="#四-无数据状态" class="headerlink" title="四.无数据状态"></a>四.无数据状态</h2><p>这边无数据状态不仅仅是搜索之后没有相应数据的状态，也包括前后台通信错误或者网络中断等一系列让数据无法正常展现在用户面前的状态。首先作为设计者我们应该明确知道，无数据此处应该是什么内容，导致没有内容的原因是什么，如何获得内容的途径以及解决方法。</p>
+<p>和web端一样，移动端的空白页面越来越受到重视，不单单是视觉层面，空白页承载着更多内容，起到更多功效。同时，我们也将无数据页面分成三种情况：</p>
+<h5 id="1、初次使用"><a href="#1、初次使用" class="headerlink" title="1、初次使用"></a>1、初次使用</h5><p>初次使用的洁面应该算比较特殊的空白页面，它虽然有时候并不是空白，但实际对于用户来说，确实“无数据”状态，因为初次进入的初始状态用户对于此产品的功能架构并不熟悉，所以初状态空白页面也分为三种：1.起引导作用的空白页;2.提示文字＋操作按钮；3.示例</p>
+<p><img src="http://pbad4floi.bkt.clouddn.com/805891.png" alt="avatar"></p>
+<h5 id="2、完成或清空内容"><a href="#2、完成或清空内容" class="headerlink" title="2、完成或清空内容"></a>2、完成或清空内容</h5><p>用户主动触发清空内容的操作，实际表明用户知道自己在做什么，误操作的可能性不高。这时候只需要给予用户结果的反馈就可以。但是有时清空内容并没有太多实际意义，却花费时间和精力，因此我们更倾向于给用户一些正面的反馈。同时需要思考用户在使用时的心理和目标，用户是否需要频繁的清空数据，如果是的话，可以考虑给出多种空状态页面，随机出现增强趣味性。 </p>
+<p><img src="http://pbad4floi.bkt.clouddn.com/805892.png" alt="avatar"></p>
+<h5 id="3、出错页面"><a href="#3、出错页面" class="headerlink" title="3、出错页面"></a>3、出错页面</h5><p>出错页面其实是可以被原谅的，但是请注意，不要进一步让用户迷惑，焦虑。需要做的是说明错误原因，并告诉用户接下来如何解决或者其他选择。一般的用户遇到无法读取数据的时候第一个操作总是刷新网络，他们甚至会切换网络或者关闭重开网络来试图重新获取数据，但是在开发人员眼中并不是所有状态都是网络造成的问题，只是用户觉得所有问题都是来自于网络。还有一种是在网络差读取数据慢的时候可以做一个预加载，提前告知用户将要出现的内容，这样也能缓解用户等待时的焦虑。</p>
+<p><img src="http://pbad4floi.bkt.clouddn.com/805893.png" alt="avatar"></p>
+<h2 id="五-浏览状态"><a href="#五-浏览状态" class="headerlink" title="五.浏览状态"></a>五.浏览状态</h2><p>移动端相比pc端有两个比较显著的特点：一是移动端应用的高情景驱动，也就是我们能在随时随地使用应用；二是移动端设备大小的多样性及限制性；这两点导致移动端应用都是暂态的，而移动端的内容展现形式也比pc端更多样化：列表、网格、轮播、卡片还有泳道，根据业务诉求以及用户诉求双重标准来设计内容的展示。</p>
+<p>用户浏览信息的时候，首先注意到的是结构（功能分布），其次再是内容（预期展示），最后是其兴趣点（核心诉求），具有代表性的几类app我们能分析出他们在设计产品的时候是如何考虑用户的浏览状态的：电商、新闻、外卖、资讯阅读。这边以最常见的列表举例：</p>
+<p><img src="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-10.png" alt="avatar"></p>
+<p>那么如何设计框架结构和功能分布让用户浏览的效率和转化率大大提高呢？我们首先来看看以上6张图，我们发现既有左图右文的排版，也有左文右图的排版，还有上下的排版，这些都是z字形视觉流路径，而这个路径的形成其实就是视觉注意力的转移，通过不同因素的影响，视觉焦点也会随之变化，例如元素的静止和动画，颜色的冷暖，明暗，形状的大小方圆等等。</p>
+<p>在做交互设计的时候我们需要考量的是如何能将信息让用户高效的获取，只有提高信息获取效率，用户才能更快的锁定兴趣点也就是核心诉求。</p>
+<p>新闻类的app通常会将图片放置在左侧，文字放置在右侧，而实际情况是用户一进入首页首先扫一遍标题，图片反而是在扫完标题有兴趣之后再去关注的，为什么？因为图片虽然在视觉影响力比文字强，但是表意不明，看图片无法知道他要讲的究竟是一件什么事，而文字确能一目十行，但是不乏有些新闻是靠图片来吸引读者的，你们懂的。所以新闻也好，资讯类app也好，目的都是需要提高用户的信息获取效率，本质上来说谁左谁右都是有迹可循的。</p>
+<p>做个小总结，如何提高用户获取效率方法：</p>
+<ul>
+<li>了解用户获取内容时的视觉流及操作流（有条件可招募用户做可用性测试）</li>
+<li>内容层次分明，并将相关联信息一起展示</li>
+<li>清楚用户核心诉求并将其重点展示</li>
+<li>内容展示有节奏感</li>
+</ul>
+<h2 id="六-确认状态"><a href="#六-确认状态" class="headerlink" title="六.确认状态"></a>六.确认状态</h2><p>当用户浏览完了内容，终于找到了他们要找的东西之后，这时候要正真的获取到它，这时候我们需要注意3点：</p>
+<ul>
+<li>告诉用户最后的结果，支付成功或者失败，成功之后还能获取奖励？分享他人？给用户一种成就感，毕竟好不容易走了前面5个步骤才到了这里。而失败了又是什么原因导致的？如何解决？</li>
+<li>再次让用户确认所需内容</li>
+<li>提供出口，但不要“轻易”让用户溜走同时完成结果流程一定要顺畅</li>
+</ul>
+<p><img src="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-11.png" alt="avatar"></p>
+<h2 id="七-错误状态"><a href="#七-错误状态" class="headerlink" title="七.错误状态"></a>七.错误状态</h2><p>好，重点来了。为什么说重点？这对于我们的用户来说往往是致命的。最近我们ued团队的用研同学做了一份以一个月为周期的用户流失研究，其报告中提到除了核心内容没办法满足用户之外，很大一部分流失用户是因为应用频繁出错或者试用早起出现致命错误导致的用户流失，甚至一个小小的认证失败也导致了其流失。</p>
+<p>所以我们能预料到，除了刚性需求吸引用户外，其他用户的耐心程度可能并不高，有一部分用户在抱着试试看的态度使用产品时的内心是极其脆弱了，一出现错误或者无法解决错误的时候往往就是产生放弃使用的念头。（现在轻量型应用能更敏捷的抓住用户的诉求点）</p>
+<p>所以这里就需要讲的是产品可用性的三原则：</p>
+<h5 id="1、有效性"><a href="#1、有效性" class="headerlink" title="1、有效性"></a>1、有效性</h5><p>这里的效是效果的意思，什么意思？就是用户想去京东买部手机，有效性就是指用户能够买到自己想买的手机，而如果这个京东手机店铺没有用户想要的手机，那这个店铺对于用户来说就没有存在价值了。</p>
+<h5 id="2、效率"><a href="#2、效率" class="headerlink" title="2、效率"></a>2、效率</h5><p>用户如何能够快速方便的买到想要的手机，如果支付的流程繁琐，步骤多，这样就大大降低了用户购买手机的效率，导致用户体验下降，而下一次用户则不会选择这哥效率低下的产品。</p>
+<h5 id="3、满意度"><a href="#3、满意度" class="headerlink" title="3、满意度"></a>3、满意度</h5><p>即使满足了前两个方面，但是如果其他方面招致用户的抱怨，也将导致用户流失，比如数据加载慢，数据显示错误，以及操作步骤多等等。</p>
+<p>一个产品的错误状态往往都是这三点而引发出来的，包括用户输错密码也好，网络中断也好，数据无法刷新也好，用户遇到错误无法解决也好。</p>
+<p>那么既然出现了错误，我们理应向用户反馈原因，及处理方法，这边为什么要给用户反馈我们就不说了，不反馈用户就跑啦，我们来讲一讲反馈的形式以及内容：</p>
+<h5 id="1、反馈的形式"><a href="#1、反馈的形式" class="headerlink" title="1、反馈的形式"></a>1、反馈的形式</h5><p>错误反馈的形式有很多种：情感化插画，顶部警告栏，弹窗，toast等等其实还有动画，如iOS解锁错误抖一抖，还有声音等等 .</p>
+<h5 id="2、反馈的内容"><a href="#2、反馈的内容" class="headerlink" title="2、反馈的内容"></a>2、反馈的内容</h5><p>错误提示，告知用户为什么操作被中断，以及出现了什么错误。错误信息要尽量准确、通俗易懂。有效的错误提示信息要解释发生的原因，并提供解决方案，以使用户能够从错误中恢复。</p>
+<p><img src="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-12.png" alt="avatar"></p>
+<h2 id="八-结束状态"><a href="#八-结束状态" class="headerlink" title="八.结束状态"></a>八.结束状态</h2><p>一个好的结尾意味着什么？意味着：客官，欢迎下次再来跟姐妹们聊天～</p>
+<p>我们终于帮助用户达成了他的愿望，这就结束了吗？还远远没有，这世界上永远没有一次性的生意。所以给用户一个美好的结束体验，是他下一次再来愉快购物的保障，一个优秀的产品通常会有几个美好的结尾，来时刻帮助用户记得这个瞬间，举个结尾优秀的例子（格瓦拉，但是价格不便宜）：</p>
+<p>虽然我们用这个产品主要目的是为了购买电影票，本来购买完电影票流程也就结束了，但是格瓦拉还远远没有让你觉得结束，它基本上从你购票完成后能够进行时间提醒、影院交通选择、影院附近消费等各种服务（因为现在观影结束后观影小助手不能调出，所以凭记忆说出了几个我印象深刻的功能）。</p>
+<p>很显然，格瓦拉电影是一个想要陪伴你从电影挑选、在线购票、观影路上交通、影院附近娱乐、影院取票、影院观影以及电影点评“一条龙”的应用。你会发现它重在体验，想要成为用户的一个朋友，而不是一个单纯的工具。据说在观看某些影片结束的时候还会温馨地提醒你片尾有彩蛋！直击影迷的痛点。时间提醒上，分为几次提醒，都是关键的几个时间点。</p>
+<p><img src="http://image.woshipm.com/wp-files/2016/09/iPhone-6-Copy-14.png" alt="avatar"></p>
+<h2 id="九-中断状态"><a href="#九-中断状态" class="headerlink" title="九.中断状态"></a>九.中断状态</h2><p>中断状态其实没啥好说的了，应用要是经常中断也就没有用户用了，公司也就倒灶了。</p>
+<blockquote>
+<p>图片仅供于参考学习，版权归属原作者。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/用户体验，界面/" rel="tag"># 用户体验，界面</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/13/18、界面视觉设计-字体/" rel="next" title="界面视觉设计-字体">
+                <i class="fa fa-chevron-left"></i> 界面视觉设计-字体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+	
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">杨林川</p>
+              <p class="site-description motion-element" itemprop="description">努力奋斗</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-等待状态"><span class="nav-number">1.</span> <span class="nav-text">一.等待状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-初始状态"><span class="nav-number">2.</span> <span class="nav-text">二.初始状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、展示核心内容，并将其放大"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1、展示核心内容，并将其放大</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、告诉用户“他”在哪里"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2、告诉用户“他”在哪里</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、智能提供，让用户自己选择"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3、智能提供，让用户自己选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、精致的UI界面"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">4、精致的UI界面</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-寻找-搜索-状态"><span class="nav-number">3.</span> <span class="nav-text">三.寻找(搜索)状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、目的性寻找-搜索"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">1、目的性寻找(搜索)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、无目的性寻找-搜索"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">2、无目的性寻找(搜索)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、全面性寻找-搜索"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">3、全面性寻找(搜索)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、重复性寻找-搜索"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">4、重复性寻找(搜索)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-无数据状态"><span class="nav-number">4.</span> <span class="nav-text">四.无数据状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、初次使用"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">1、初次使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、完成或清空内容"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">2、完成或清空内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、出错页面"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">3、出错页面</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-浏览状态"><span class="nav-number">5.</span> <span class="nav-text">五.浏览状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-确认状态"><span class="nav-number">6.</span> <span class="nav-text">六.确认状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-错误状态"><span class="nav-number">7.</span> <span class="nav-text">七.错误状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、有效性"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">1、有效性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、效率"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">2、效率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、满意度"><span class="nav-number">7.0.0.3.</span> <span class="nav-text">3、满意度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1、反馈的形式"><span class="nav-number">7.0.0.4.</span> <span class="nav-text">1、反馈的形式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、反馈的内容"><span class="nav-number">7.0.0.5.</span> <span class="nav-text">2、反馈的内容</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-结束状态"><span class="nav-number">8.</span> <span class="nav-text">八.结束状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-中断状态"><span class="nav-number">9.</span> <span class="nav-text">九.中断状态</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨林川</span>
+
+  
+</div>
+
+
+  <div class="powered-by">个人博客</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">个人网站 &mdash; <a class="theme-link" target="_blank" href="http://www.hxkiss.xyz/">www.hxkiss.xyz</a> </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
